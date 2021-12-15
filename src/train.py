@@ -30,7 +30,7 @@ def main():
             assert  pd.notnull(df).all().all(),"The has nulls" # check if the df has nulls
             st.write(df)
             assert df.shape[1] == 14, "Expected 14 columns" # else activity may cause error
-            assert len(set(df["Activity"].unique())) == 13, "Expected 13 activities"
+            #assert len(set(df["Activity"].unique())) == 13, "Expected 13 activities"
             df['Activity'] = df['Activity'].replace([1, 2, 3, 4, 5, 6,
                                                      7, 8, 9, 10, 11, 12],
                                                     ['Standing still',
