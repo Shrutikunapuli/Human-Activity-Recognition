@@ -27,7 +27,10 @@ def main():
     uploaded_file = st.file_uploader("Choose data file")
     if uploaded_file is not None:
             df = pd.read_csv(uploaded_file)
+            assert  pd.notnull(df).all().all(),"The has nulls" # check if the df has nulls
             st.write(df)
+            assert df.shape[1] == 14, "Expected 14 columns" # else activity may cause error
+            assert len(set(df["Activity"].unique())) == 13, "Expected 13 activities"
             df['Activity'] = df['Activity'].replace([1, 2, 3, 4, 5, 6,
                                                      7, 8, 9, 10, 11, 12],
                                                     ['Standing still',
