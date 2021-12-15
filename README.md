@@ -51,7 +51,7 @@ Install all the required libraries
 
 3) Go to src and Run ``` streamlit run train.py ```
 
-Another broswer will open like below- 
+Another browser will open like below(http://localhost:8502/)-
 
 ![image](https://user-images.githubusercontent.com/29593466/146152018-9d2254e3-00d3-49a0-bf75-90f46677ae1e.png)
 
@@ -64,8 +64,16 @@ Upload data/Data1.csv file through browse button
 
 
 4) To view models on MLFlow UI click on http link after modelling (In gernal: http://127.0.0.1:5000/)
+
 Go to /src and run ``` mlflow ui ```
 ![image](https://user-images.githubusercontent.com/29593466/146152075-947ad203-5245-4af8-bc20-e62504c58114.png)
+ 
+Few test cases
+``` assert(len(df)!=0),"file not selected" 
+assert  pd.notnull(df).all().all(),"The has nulls"
+assert df.shape[1] == 14, "Expected 14 columns"
+
+Output ![image](https://user-images.githubusercontent.com/29593466/146166968-0552f620-38da-49ec-b7ba-8f64a6feaaff.png)
 
 
 ## More resources
