@@ -21,7 +21,7 @@ def load_dataset(path, test_size=0.2, random_state=12):
 
 if __name__ == '__main__':
     x_train, x_test, y_train, y_test = load_dataset(
-        'Data1.csv', ';'
+        '../data/Data1.csv', ';'
     )
     print(x_train.head())
     print(y_train.head())
