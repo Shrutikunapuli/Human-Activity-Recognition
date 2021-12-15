@@ -23,22 +23,10 @@ Streamlit can also be installed in a virtual environment on Windows, Mac, and Li
 
 
 ## Repository overview
-
-.
-├── build                   # Compiled files (alternatively `dist`)
-├── docs                    # Documentation files (alternatively `doc`)
-├── src                     # Source files (alternatively `lib` or `app`)
-├── test                    # Automated tests (alternatively `spec` or `tests`)
-├── tools                   # Tools and utilities
-├── LICENSE
-└── README.md
-
+```bash
 ├── README.md
-
 ├── requirements.txt
-
 ├── data
-
 │   ├── Data1.csv
 │   └── mhealth_raw_data 2.csv (Download from Gdrive)
 └── src
@@ -46,7 +34,7 @@ Streamlit can also be installed in a virtual environment on Windows, Mac, and Li
     ├── EDA.py
     ├── load_datasets.py
     └── train.py
-    
+ ```
 
 ## Running instructions
 
