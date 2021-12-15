@@ -17,10 +17,11 @@ def logisticRegression():
     mlflow.sklearn.autolog()
     experiment_id = mlflow.set_experiment("Logistic Regression Model")
     with mlflow.start_run(run_name='logistic regression') as run:
-        X_train, X_test, y_train, y_test = load_dataset('mhealth_raw_data 2.csv')
+        X_train, X_test, y_train, y_test = load_dataset('../data/mhealth_raw_data 2.csv')
         lr = LogisticRegression(penalty="l2", solver='liblinear')
         lr.fit(X_train, y_train)
         y_pred = lr.predict(X_test)
+        print(y_pred)
         metrics = mlflow.sklearn.eval_and_log_metrics(lr,
                                                       X_test,
                                                       y_test,
@@ -32,7 +33,7 @@ def decision_tree():
     mlflow.sklearn.autolog()
     experiment_id = mlflow.set_experiment("Decision Trees")
     with mlflow.start_run(run_name='decision tree') as run:
-        X_train, X_test, y_train, y_test = load_dataset('mhealth_raw_data 2.csv')
+        X_train, X_test, y_train, y_test = load_dataset('../data/mhealth_raw_data 2.csv')
         parameters = {'min_samples_split': range(2, 5, 10),
                       'max_depth': range(2, 5, 10)}
         clf_tree = DecisionTreeClassifier()
@@ -50,7 +51,7 @@ def decision_tree_with_KFold(n_splits=10):
     experiment_id = mlflow.set_experiment("Decision Trees with" +
                                           "K-Fold Cross Validation")
     with mlflow.start_run(run_name='decision tree') as run:
-        X_train, X_test, y_train, y_test = load_dataset('mhealth_raw_data 2.csv')
+        X_train, X_test, y_train, y_test = load_dataset('../data/mhealth_raw_data 2.csv')
         clf_tree = DecisionTreeClassifier()
         k_fold = KFold(n_splits)
         mlflow.log_param("n_splits", n_splits)
@@ -66,7 +67,7 @@ def random_forest():
     experiment_id = mlflow.set_experiment("Random Forest")
     mlflow.sklearn.autolog()
     with mlflow.start_run(run_name='random forest') as run:
-        X_train, X_test, y_train, y_test = load_dataset('mhealth_raw_data 2.csv')
+        X_train, X_test, y_train, y_test = load_dataset('../data/mhealth_raw_data 2.csv')
         classifier = RandomForestClassifier(n_estimators=500)
         classifier.fit(X_train, y_train)
         y_pred = classifier.predict(X_test)
@@ -81,7 +82,7 @@ def xgboost_classification():
     experiment_id = mlflow.set_experiment("XGBoost")
     mlflow.sklearn.autolog()
     with mlflow.start_run(run_name='xgboost') as run:
-        X_train, X_test, y_train, y_test = load_dataset('mhealth_raw_data 2.csv')
+        X_train, X_test, y_train, y_test = load_dataset('../data/mhealth_raw_data 2.csv')
         classifier = XGBClassifier()
         classifier.fit(X_train, y_train)
         y_pred = classifier.predict(X_test)
@@ -96,7 +97,7 @@ def neural_networks():
     experiment_id = mlflow.set_experiment("Neural Networks")
     mlflow.keras.autolog()
     with mlflow.start_run(run_name='neural networks') as run:
-        X_train, X_test, y_train, y_test = load_dataset('mhealth_raw_data 2.csv')
+        X_train, X_test, y_train, y_test = load_dataset('../data/mhealth_raw_data 2.csv')
         model = Sequential()
         model.add(Dense(units=64,
                         kernel_initializer='normal',
