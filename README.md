@@ -69,10 +69,10 @@ Go to /src and run ``` mlflow ui ```
 ![image](https://user-images.githubusercontent.com/29593466/146152075-947ad203-5245-4af8-bc20-e62504c58114.png)
  
 Few test cases
-``` assert(len(df)!=0),"file not selected" 
+ ``` assert(len(df)!=0),"file not selected" 
 assert  pd.notnull(df).all().all(),"The has nulls"
-assert df.shape[1] == 14, "Expected 14 columns"
-
+assert df.shape[1] == 14, "Expected 14 columns" 
+``` 
 Output ![image](https://user-images.githubusercontent.com/29593466/146166968-0552f620-38da-49ec-b7ba-8f64a6feaaff.png)
 
 
