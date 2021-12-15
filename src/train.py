@@ -11,7 +11,7 @@ from EDA import univariateAnalysis_Density
 from EDA import univariateAnalysis_Features
 from EDA import bivariateAnalysis_Activity_Gyroscope
 from EDA import bivariateAnalysis_Activity_Accelerometer
-
+import mlflow
 
 def main():
     page = st.sidebar.selectbox(
