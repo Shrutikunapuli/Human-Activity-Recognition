@@ -64,8 +64,10 @@ Upload data/Data1.csv file through browse button
 
 
 4) To view models on MLFlow UI click on http link after modelling (In gernal: http://127.0.0.1:5000/)
-
+and 
 Go to /src and run ``` mlflow ui ```
+and refresh
+
 ![image](https://user-images.githubusercontent.com/29593466/146152075-947ad203-5245-4af8-bc20-e62504c58114.png)
  
 Few test cases
