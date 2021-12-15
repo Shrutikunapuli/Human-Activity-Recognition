@@ -1,15 +1,16 @@
 import streamlit as st
 from io import StringIO
 import pandas as pd
-import time
-import matplotlib.pyplot as plt
-import seaborn as sns
-import mlflow
 from models import logisticRegression
 from models import decision_tree_with_KFold
 from models import random_forest
 from models import xgboost_classification
 from models import neural_networks
+from EDA import multivariateAnalysis_Correlation
+from EDA import univariateAnalysis_Density
+from EDA import univariateAnalysis_Features
+from EDA import bivariateAnalysis_Activity_Gyroscope
+from EDA import bivariateAnalysis_Activity_Accelerometer
 
 
 def main():
@@ -41,60 +42,18 @@ def main():
                                                      'Jogging',
                                                      'Running',
                                                      'Jump front & back'])
-            print(page)
+            #print(page)
             if page == "Multivariate Analysis-Correlation plot":
-                
+                multivariateAnalysis_Correlation(df)
             elif page == "Univariate Analysis-Density plot":
-                
+                univariateAnalysis_Density(df)
             elif page == "Univariate Analysis-Features":
-                
+                univariateAnalysis_Features(df)
             elif page == "Bivariate Analysis-Activity VS Gyroscope Readings":
-                st.header("Bivariate Analysis-Activity VS Gyroscope Readings")
-                for activity in ["Jogging", "Lying down"]:
-                    fig4 = plt.figure(figsize=(16, 4))
-                    plt.subplot(1, 2, 1)
-                    plt.plot(df[df['Activity'] == activity].reset_index(drop=True)['glx'],
-                             alpha=.7, label="{}: glx".format(activity))
-                    plt.plot(df[df['Activity'] == activity].reset_index(drop=True)['gly'],
-                             alpha=.7, label="{}: gly".format(activity))
-                    plt.plot(df[df['Activity'] == activity].reset_index(drop=True)['glz'],
-                             alpha=.7, label="{}: glz".format(activity))
-                    plt.title('{} - left-hand'.format(activity))
-                    plt.legend(loc='upper right')
-                    plt.subplot(1, 2, 2)
-                    plt.plot(df[df['Activity'] == activity].reset_index(drop=True)['grx'],
-                             alpha=.7, label="{}: grx".format(activity))
-                    plt.plot(df[df['Activity'] == activity].reset_index(drop=True)['gry'],
-                             alpha=.7, label="{}: gry".format(activity))
-                    plt.plot(df[df['Activity'] == activity].reset_index(drop=True)['grz'],
-                             alpha=.7, label="{}: grz".format(activity))
-                    plt.title('{} - right-hand'.format(activity))
-                    plt.legend(loc='upper right')
-                    st.pyplot(fig4)
+                bivariateAnalysis_Activity_Gyroscope(df)
             elif page == "Bivariate Analysis-Activity VS Accelerometer Readings":
-                st.header("Bivariate Analysis-Activity VS" +
-                          " Accelerometer Readings")
-                for activity in ["Standing still", "Running"]:
-                    fig6 = plt.figure(figsize=(16, 4))
-                    plt.subplot(1, 2, 1)
-                    plt.plot(df[df['Activity'] == activity].reset_index(drop=True)['alx'],
-                             alpha=.7, label="{}: alx".format(activity))
-                    plt.plot(df[df['Activity'] == activity].reset_index(drop=True)['aly'],
-                             alpha=.7, label="{}: aly".format(activity))
-                    plt.plot(df[df['Activity'] == activity].reset_index(drop=True)['alz'],
-                             alpha=.7, label="{}: alz".format(activity))
-                    plt.title('{} - left-hand'.format(activity))
-                    plt.legend(loc='upper right')
-                    plt.subplot(1, 2, 2)
-                    plt.plot(df[df['Activity'] == activity].reset_index(drop=True)['arx'],
-                             alpha=.7, label="{}: arx".format(activity))
-                    plt.plot(df[df['Activity'] == activity].reset_index(drop=True)['ary'],
-                             alpha=.7, label="{}: ary".format(activity))
-                    plt.plot(df[df['Activity'] == activity].reset_index(drop=True)['arz'],
-                             alpha=.7, label="{}: arz".format(activity))
-                    plt.title('{} - right-hand'.format(activity))
-                    plt.legend(loc='upper right')
-                    st.pyplot(fig6)
+                bivariateAnalysis_Activity_Accelerometer(df)
+            
     model = st.selectbox("Select a model:",
                          ("select", 'Logistic Regression',
                           'Decision Tree with KFold',
