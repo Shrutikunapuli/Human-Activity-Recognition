@@ -1,5 +1,6 @@
 # Human-Activity-Recognition
 
+pip install -r requirements.txt
 
 ### Installation
 pip install streamlit
