@@ -92,3 +92,5 @@ def bivariateAnalysis_Activity_Accelerometer(df):
         plt.title('{} - right-hand'.format(activity))
         plt.legend(loc='upper right')
         st.pyplot(fig6)
+if __name__ == '__main__':
+    bivariateAnalysis_Activity_Accelerometer(pd.read_csv("../data/Data1.csv"))
