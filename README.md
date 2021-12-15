@@ -13,10 +13,25 @@ Random forest has the best accuracy- 95% on test data when implemented with Grid
 
 For UI and Data Visualization: Streamlit
 It is an open-source app to create apps.
-![image](https://user-images.githubusercontent.com/29593466/146150644-4c48daf7-6ca8-4741-84e1-402572985460.png)
+
+pip install streamlit
+
+streamlit hello
+
+Streamlit can also be installed in a virtual environment on Windows, Mac, and Linux.
+
 
 
 ## Repository overview
+
+.
+├── build                   # Compiled files (alternatively `dist`)
+├── docs                    # Documentation files (alternatively `doc`)
+├── src                     # Source files (alternatively `lib` or `app`)
+├── test                    # Automated tests (alternatively `spec` or `tests`)
+├── tools                   # Tools and utilities
+├── LICENSE
+└── README.md
 
 ├── README.md
 
